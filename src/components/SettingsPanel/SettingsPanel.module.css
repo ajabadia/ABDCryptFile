@@ -101,3 +101,41 @@
 .smallInput {
   width: 100%;
 }
+
+.strengthMeter {
+  margin-top: 4px;
+}
+
+.strengthBarContainer {
+  height: 12px;
+  background: var(--bg-color);
+  border: 2px solid var(--border-color);
+  display: flex;
+  overflow: hidden;
+}
+
+.strengthBarFill {
+  height: 100%;
+  transition: width 0.3s ease, background-color 0.3s ease;
+}
+
+.strengthInfo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 4px;
+  font-size: 0.75rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+/* Retro Colors for Strength */
+.weakFill { background-color: #ff4444; }
+.mediumFill { background-color: #ffaa00; }
+.strongFill { background-color: #00aa00; }
+.veryStrongFill { background-color: #00ffff; }
+
+.weakText { color: #ff4444; }
+.mediumText { color: #ffaa00; }
+.strongText { color: #00aa00; }
+.veryStrongText { color: #00ffff; }

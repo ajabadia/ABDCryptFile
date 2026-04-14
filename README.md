@@ -16,10 +16,12 @@ ABDFN Encryptor es una herramienta de encriptación de archivos masiva, diseñad
 
 - **🔐 Privacidad Total:** Todo el procesamiento ocurre localmente mediante la **Web Crypto API**. Ni tus archivos ni tu contraseña se envían jamás a ningún servidor.
 - **⚡ Criptografía AES-256-GCM:** Implementación exacta compatible con la herramienta original en C#.
+- **🌐 Internacionalización (i18n):** Soporte nativo para **Español, Inglés, Francés y Alemán** con cambio instantáneo de región.
+- **♿ Accesibilidad Pro (a11y):** Cumplimiento de estándares WCAG AA, navegación completa por teclado, etiquetas ARIA descriptivas y alto contraste retro.
 - **🕰️ Estética Retro-Minimalista:** 
     - **Modo C64:** Tonos azules eléctricos y tipografía monoespaciada de 8 bits.
     - **Modo 1984 PC:** El clásico "Beige" con bordes sólidos y acentos verdes fósforo.
-- **🕒 Temas Inteligentes:** Cambio automático de tema basado en el sistema o en la franja horaria (08:00 - 20:00).
+- **🛡️ Seguridad Avanzada:** Medidor de robustez de contraseña en tiempo real y auto-purga de sesión tras 5 minutos de inactividad.
 - **📦 Procesamiento Batch:** Encripta o desencripta cientos de archivos simultáneamente con descarga automática.
 - **📜 Log de Operaciones:** Consola tipo terminal con posibilidad de exportar el registro a disco.
 

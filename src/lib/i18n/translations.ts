@@ -32,6 +32,11 @@ export const translations = {
       suffix: 'SUFIJO DESENCRIP.',
       show_pwd: 'MOSTRAR CLAVE',
       hide_pwd: 'OCULTAR CLAVE',
+      strength: 'ROBUSTEZ',
+      weak: 'DÉBIL',
+      medium: 'MEDIA',
+      strong: 'FUERTE',
+      very_strong: 'MUY FUERTE',
     },
     logs: {
       title: 'OPERACIONES',
@@ -46,6 +51,11 @@ export const translations = {
       skip_dec: 'NO ES UN ARCHIVO .ENC, SALTANDO.',
       summary: 'RESUMEN: ✅ {s} ÉXITOS, ❌ {e} ERRORES, ⏭️ {k} OMITIDOS.',
       pwd_required: 'LA CONTRASEÑA ES OBLIGATORIA.',
+      session_expired: 'SESIÓN EXPIRADA: CONTRASEÑA PURGADA POR SEGURIDAD.',
+      list_cleared: 'LISTA LIMPIADA: {n} ARCHIVOS REMOVIDOS.',
+      history_cleared: '--- HISTORIAL DE TAREAS REINICIADO ---',
+      logs_exported: 'REGISTRO DE OPERACIONES EXPORTADO CON ÉXITO.',
+      sort_applied: 'LISTA DE ARCHIVOS REORDENADA.',
     }
   },
   en: {
@@ -79,6 +89,11 @@ export const translations = {
       suffix: 'DECRYPT. SUFFIX',
       show_pwd: 'SHOW PASSWORD',
       hide_pwd: 'HIDE PASSWORD',
+      strength: 'STRENGTH',
+      weak: 'WEAK',
+      medium: 'MEDIUM',
+      strong: 'STRONG',
+      very_strong: 'VERY STRONG',
     },
     logs: {
       title: 'OPERATIONS',
@@ -93,6 +108,11 @@ export const translations = {
       skip_dec: 'NOT A .ENC FILE, SKIPPING.',
       summary: 'SUMMARY: ✅ {s} SUCCESSES, ❌ {e} ERRORS, ⏭️ {k} SKIPPED.',
       pwd_required: 'PASSWORD IS REQUIRED.',
+      session_expired: 'SESSION EXPIRED: PASSWORD PURGED FOR SECURITY.',
+      list_cleared: 'LIST CLEARED: {n} FILES REMOVED.',
+      history_cleared: '--- TASK HISTORY RESET ---',
+      logs_exported: 'OPERATION LOG EXPORTED SUCCESSFULLY.',
+      sort_applied: 'FILE LIST REORDERED.',
     }
   },
   fr: {
@@ -126,6 +146,11 @@ export const translations = {
       suffix: 'SUFFIXE DÉCHIFF.',
       show_pwd: 'VOIR MOT DE PASSE',
       hide_pwd: 'CACHER MOT DE PASSE',
+      strength: 'RÉSISTANCE',
+      weak: 'FAIBLE',
+      medium: 'MOYENNE',
+      strong: 'FORTE',
+      very_strong: 'TRÈS FORTE',
     },
     logs: {
       title: 'OPÉRATIONS',
@@ -140,6 +165,11 @@ export const translations = {
       skip_dec: 'PAS UN FICHIER .ENC, IGNORÉ.',
       summary: 'RÉSUMÉ: ✅ {s} SUCCÈS, ❌ {e} ERREURS, ⏭️ {k} IGNORÉS.',
       pwd_required: 'MOT DE PASSE REQUIS.',
+      session_expired: 'SESSION EXPIRÉE : MOT DE PASSE PURGÉ PAR SÉCURITÉ.',
+      list_cleared: 'LISTE EFFACÉE : {n} FICHIERS SUPPRIMÉS.',
+      history_cleared: '--- HISTORIQUE DES TÂCHES RÉINITIALISÉ ---',
+      logs_exported: 'JOURNAL DES OPÉRATIONS EXPORTÉ AVEC SUCCÈS.',
+      sort_applied: 'LISTE DE FICHIERS RÉORDONNÉE.',
     }
   },
   de: {
@@ -173,6 +203,11 @@ export const translations = {
       suffix: 'ENTSCHLÜSS.-SUFFIX',
       show_pwd: 'PASSWORT ZEIGEN',
       hide_pwd: 'PASSWORT VERBERGEN',
+      strength: 'STÄRKE',
+      weak: 'SCHWACH',
+      medium: 'MITTEL',
+      strong: 'STARK',
+      very_strong: 'SEHR STARK',
     },
     logs: {
       title: 'OPERATIONEN',
@@ -187,6 +222,11 @@ export const translations = {
       skip_dec: 'KEINE .ENC-DATEI.',
       summary: 'ZUSAMMENFASSUNG: ✅ {s} ERFOLGE, ❌ {e} FEHLER, ⏭️ {k} ÜBERSPRUNGEN.',
       pwd_required: 'PASSWORT ERFORDERLICH.',
+      session_expired: 'SITZUNG ABGELAUFEN: PASSWORT AUS SICHERHEITSGRÜNDEN GELÖSCHT.',
+      list_cleared: 'LISTE GELEERT: {n} DATEIEN ENTFERNT.',
+      history_cleared: '--- AUFGABENVERLAUF ZURÜCKGESETZT ---',
+      logs_exported: 'OPERATIONSPROTOKOLL ERFOLGREICH EXPORTIERT.',
+      sort_applied: 'DATEILISTE NEU GEORDNET.',
     }
   }
 };

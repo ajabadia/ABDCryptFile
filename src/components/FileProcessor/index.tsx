@@ -12,12 +12,16 @@ interface SelectedFile {
 
 interface FileProcessorProps {
   onProcess: (files: File[], mode: 'encrypt' | 'decrypt') => void;
+  onClear?: (count: number) => void;
+  onSort?: (asc: boolean) => void;
   isProcessing: boolean;
   clearOnFinish: boolean;
 }
 
 const FileProcessor: React.FC<FileProcessorProps> = ({ 
   onProcess, 
+  onClear,
+  onSort,
   isProcessing,
   clearOnFinish
 }) => {
@@ -49,7 +53,11 @@ const FileProcessor: React.FC<FileProcessorProps> = ({
     setFiles(prev => prev.filter(f => f.id !== id));
   };
 
-  const clearFiles = () => setFiles([]);
+  const clearFiles = () => {
+    const count = files.length;
+    setFiles([]);
+    if (onClear && count > 0) onClear(count);
+  };
 
   const sortFiles = (asc: boolean) => {
     setFiles(prev => {
@@ -58,6 +66,7 @@ const FileProcessor: React.FC<FileProcessorProps> = ({
       );
       return sorted;
     });
+    if (onSort) onSort(asc);
   };
 
   return (
