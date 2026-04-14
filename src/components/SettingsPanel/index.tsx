@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import { EyeIcon, LockIcon } from '@/components/common/Icons';
+import { useLanguage } from '@/lib/context/LanguageContext';
 import styles from './SettingsPanel.module.css';
 
 interface SettingsPanelProps {

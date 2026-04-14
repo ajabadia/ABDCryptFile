@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useRef, useEffect } from 'react';
+import { useLanguage } from '@/lib/context/LanguageContext';
 import styles from './LogConsole.module.css';
 
 export interface LogEntry {

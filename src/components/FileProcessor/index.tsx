@@ -2,6 +2,7 @@
 
 import React, { useState, useCallback } from 'react';
 import { FolderIcon, ArrowUpIcon, ArrowDownIcon, CloseIcon, EyeIcon, LockIcon } from '@/components/common/Icons';
+import { useLanguage } from '@/lib/context/LanguageContext';
 import styles from './FileProcessor.module.css';
 
 interface SelectedFile {
@@ -20,6 +21,7 @@ const FileProcessor: React.FC<FileProcessorProps> = ({
   isProcessing,
   clearOnFinish
 }) => {
+  const { t } = useLanguage();
   const [files, setFiles] = useState<SelectedFile[]>([]);
   const [isDragging, setIsDragging] = useState(false);
 
