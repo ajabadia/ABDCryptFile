@@ -1,0 +1,86 @@
+.main {
+  min-height: 100vh;
+  padding: 40px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.header {
+  border-bottom: 8px double var(--border-color); /* Double border for retro feel */
+  padding-bottom: 24px;
+}
+
+.headerMain {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.logoIcon {
+  font-size: 3rem;
+  /* Shadow removed for retro */
+}
+
+.logoText h1 {
+  font-size: 2.2rem;
+  line-height: 1;
+  color: var(--bg-color); /* Corrected text color for inverted block */
+  background: var(--text-primary);
+  padding: 4px 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  border: 2px solid var(--text-primary);
+}
+
+.logoText span {
+  font-size: 1rem;
+  color: var(--text-primary);
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.contentGrid {
+  display: grid;
+  grid-template-columns: 1fr 450px;
+  gap: 32px;
+  align-items: stretch;
+}
+
+.leftCol {
+  display: flex;
+  flex-direction: column;
+}
+
+.rightCol {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.footer {
+  margin-top: auto;
+  padding: 24px 0;
+  text-align: center;
+  border-top: 4px solid var(--border-color);
+  font-size: 0.9rem;
+  font-weight: 700;
+  font-family: 'Space Mono', monospace;
+  color: var(--text-primary);
+  background: var(--bg-color);
+}
+
+@media (max-width: 1024px) {
+  .contentGrid {
+    grid-template-columns: 1fr;
+  }
+}

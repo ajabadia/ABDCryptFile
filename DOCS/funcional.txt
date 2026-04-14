@@ -1,0 +1,50 @@
+1. Encriptador (Encriptador ABDFN)
+Herramienta de utilidad para la encriptación y desencriptación de archivos masiva utilizando AES-256.
+
+Funcionalidades
+Gestión de Archivos:
+Permite agregar múltiples archivos a una lista de procesamiento.
+Evita duplicados en la lista.
+Permite eliminar archivos individuales o limpiar la lista completa.
+Ordenación de la lista (ascendente/descendente por nombre).
+Encriptación:
+Algoritmo: AES-256.
+Detecta automáticamente si un archivo ya tiene extensión .enc para saltarlo.
+Genera archivos de salida con extensión .enc.
+Desencriptación:
+Detecta si el archivo no tiene extensión .enc para saltarlo.
+Elimina la extensión .enc en el archivo resultante.
+Maneja conflictos de nombre agregando el sufijo _decrypted.
+Gestión de errores específica para "password incorrecta" (mapeo de "message authentication failed").
+Configuración de Procesamiento:
+Contraseña: Campo con opción de visualizar/ocultar caracteres.
+Directorio de Salida: Opcional. Si no se especifica, usa el directorio del archivo original.
+Modo Batch: Checkbox "Mantener clave y lista" para realizar múltiples operaciones sin limpiar la interfaz tras finalizar.
+Interfaz y Feedback:
+Área de Log visible con resultados operación por operación ([OK], [X], [SKIP]).
+Resumen final con conteo de éxitos y errores.
+Extras:
+Acceso a Manual de Usuario (PDF) desde el menú.
+
+
+#################################
+
+Para que la versión Web sea 100% compatible con los archivos que ya tienes encriptados con el .exe, he extraído los parámetros exactos que utiliza tu CryptoService.cs:
+
+Derivación de Clave: PBKDF2 con SHA-256 y 100,000 iteraciones.
+Tamaño de Salt: 16 bytes.
+Tamaño de Nonce (IV): 12 bytes.
+Tamaño del Tag (GCM): 16 bytes.
+Estructura del archivo: [Salt (16)] + [Nonce (12)] + [Tag (16)] + [Contenido encriptado].
+Mi propuesta técnica:
+Next.js + Web Crypto API: Replicaremos exactamente esta lógica en el navegador. La Web Crypto API soporta PBKDF2 y AES-GCM de forma nativa.
+Interfaz Premium: Siguiendo tus requisitos funcionales, crearé una interfaz moderna con:
+Zona de Drag & Drop para archivos.
+Log en tiempo real con los estados [OK], [X], [SKIP].
+Procesamiento local puro: Ningún byte saldrá de tu equipo.
+Despliegue: Al ser una aplicación estática, se puede desplegar en Vercel, GitHub Pages, o incluso abrir el index.html directamente desde una carpeta local si la seguridad de tu empresa es muy estricta.
+
+
+Diseño responsivo
+Tema claro y oscuro, con posibilidad de escoger el del sistema o por franja horaria
+Log de operaciones con posibilidad de descargar el log a disco y de borrar el log.

@@ -1,0 +1,103 @@
+.container {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+}
+
+.title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--bg-color);
+  background: var(--border-color);
+  padding: 4px 12px;
+  width: fit-content;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.field label {
+  font-size: 0.9rem;
+  color: var(--text-primary);
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.passwordWrapper {
+  position: relative;
+  display: flex;
+}
+
+.input {
+  width: 100%;
+  padding-right: 48px;
+  background: var(--bg-color);
+  border: 4px solid var(--border-color);
+}
+
+.toggleBtn {
+  position: absolute;
+  right: 4px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: transparent;
+  font-size: 1.2rem;
+}
+
+.optionsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.checkboxField {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  cursor: pointer;
+}
+
+.checkboxField input[type="checkbox"] {
+  width: 24px;
+  height: 24px;
+  accent-color: var(--primary-color);
+  border: 3px solid var(--border-color);
+  appearance: none;
+  background: var(--bg-color);
+  position: relative;
+  cursor: pointer;
+}
+
+.checkboxField input[type="checkbox"]:checked::after {
+  content: 'X';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--text-primary);
+  font-weight: 900;
+  font-size: 1.2rem;
+}
+
+.checkboxField label {
+  font-size: 0.9rem;
+  color: var(--text-primary);
+  line-height: 24px;
+}
+
+.smallInput {
+  width: 100%;
+}
