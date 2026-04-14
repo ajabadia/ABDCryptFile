@@ -5,11 +5,14 @@ import SettingsPanel from '@/components/SettingsPanel';
 import FileProcessor from '@/components/FileProcessor';
 import LogConsole, { LogEntry } from '@/components/LogConsole';
 import ThemeSwitcher from '@/components/ThemeSwitcher';
+import LanguageSwitcher from '@/components/LanguageSwitcher';
 import { ShieldIcon } from '@/components/common/Icons';
 import { CryptoService } from '@/lib/services/crypto.service';
+import { useLanguage } from '@/lib/context/LanguageContext';
 import styles from './page.module.css';
 
 export default function Home() {
+  const { t } = useLanguage();
   const [password, setPassword] = useState('');
   const [batchMode, setBatchMode] = useState(false);
   const [outputSuffix, setOutputSuffix] = useState('_decrypted');
@@ -29,12 +32,12 @@ export default function Home() {
 
   const handleProcess = async (files: File[], mode: 'encrypt' | 'decrypt') => {
     if (!password) {
-      addLog('error', 'La contraseña es obligatoria para procesar archivos.');
+      addLog('error', t('logs.pwd_required'));
       return;
     }
 
     setIsProcessing(true);
-    addLog('info', `Iniciando proceso de ${mode === 'encrypt' ? 'encriptación' : 'desencriptación'} masiva...`);
+    addLog('info', mode === 'encrypt' ? t('logs.start_enc') : t('logs.start_dec'));
 
     let successCount = 0;
     let errorCount = 0;
@@ -44,13 +47,13 @@ export default function Home() {
       try {
         // Validation logic matching funcional.txt
         if (mode === 'encrypt' && file.name.endsWith('.enc')) {
-          addLog('skip', 'Archivo ya encriptado, saltando.', file.name);
+          addLog('skip', t('logs.skip_enc'), file.name);
           skipCount++;
           continue;
         }
 
         if (mode === 'decrypt' && !file.name.endsWith('.enc')) {
-          addLog('skip', 'No es un archivo .enc, saltando.', file.name);
+          addLog('skip', t('logs.skip_dec'), file.name);
           skipCount++;
           continue;
         }
@@ -76,10 +79,10 @@ export default function Home() {
         a.click();
         URL.revokeObjectURL(url);
 
-        addLog('success', 'Operación completada con éxito.', file.name);
+        addLog('success', t('logs.success'), file.name);
         successCount++;
       } catch (error: any) {
-        addLog('error', error.message || 'Error inesperado.', file.name);
+        addLog('error', error.message || t('logs.error'), file.name);
         errorCount++;
       }
     }
