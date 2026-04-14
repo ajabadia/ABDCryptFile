@@ -1,11 +1,17 @@
 .main {
   min-height: 100vh;
-  padding: 40px 16px; /* Reduced side padding for mobile */
+  padding: 40px 20px; /* Restored original desktop padding */
   max-width: 1200px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   gap: 40px;
+}
+
+@media (max-width: 768px) {
+  .main {
+    padding: 40px 16px; /* Mobile fix kept only in media query */
+  }
 }
 
 .header {
@@ -18,6 +24,8 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
+}
+
 .headerControls {
   display: flex;
   align-items: center;
