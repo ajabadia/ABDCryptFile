@@ -21,28 +21,31 @@ const SettingsPanel: React.FC<SettingsPanelProps> = ({
   outputSuffix,
   setOutputSuffix
 }) => {
+  const { t } = useLanguage();
   const [showPassword, setShowPassword] = useState(false);
 
   return (
-    <div className={`glass ${styles.container}`}>
-      <h2 className={styles.title}>Configuración</h2>
+    <section className={`glass ${styles.container}`} aria-labelledby="settings-title">
+      <h2 id="settings-title" className={styles.title}>{t('settings.title')}</h2>
       
       <div className={styles.field}>
-        <label>Contraseña Maestra</label>
+        <label htmlFor="master-pwd">{t('settings.password')}</label>
         <div className={styles.passwordWrapper}>
           <input
+            id="master-pwd"
             type={showPassword ? 'text' : 'password'}
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            placeholder="Introduce la clave de encriptación..."
+            placeholder={t('settings.password_placeholder')}
             className={styles.input}
           />
           <button 
             onClick={() => setShowPassword(!showPassword)}
             className={styles.toggleBtn}
-            title={showPassword ? 'Ocultar' : 'Mostrar'}
+            title={showPassword ? t('settings.hide_pwd') : t('settings.show_pwd')}
+            aria-label={showPassword ? t('settings.hide_pwd') : t('settings.show_pwd')}
           >
-            {showPassword ? <EyeIcon size={20} /> : <LockIcon size={20} />}
+            {showPassword ? <EyeIcon size={20} aria-hidden="true" /> : <LockIcon size={20} aria-hidden="true" />}
           </button>
         </div>
       </div>
@@ -55,12 +58,13 @@ const SettingsPanel: React.FC<SettingsPanelProps> = ({
             checked={batchMode}
             onChange={(e) => setBatchMode(e.target.checked)}
           />
-          <label htmlFor="batchMode">Modo Batch (Mantener lista)</label>
+          <label htmlFor="batchMode">{t('settings.batch_mode')}</label>
         </div>
 
         <div className={styles.field}>
-          <label>Sufijo Desencriptación</label>
+          <label htmlFor="suffix-input">{t('settings.suffix')}</label>
           <input
+            id="suffix-input"
             type="text"
             value={outputSuffix}
             onChange={(e) => setOutputSuffix(e.target.value)}
@@ -69,7 +73,7 @@ const SettingsPanel: React.FC<SettingsPanelProps> = ({
           />
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

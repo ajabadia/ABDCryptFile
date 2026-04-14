@@ -19,6 +19,7 @@ interface LogConsoleProps {
 
 const LogConsole: React.FC<LogConsoleProps> = ({ logs, onClear, onSave }) => {
   const scrollRef = useRef<HTMLDivElement>(null);
+  const { t } = useLanguage();
 
   useEffect(() => {
     if (scrollRef.current) {
@@ -27,33 +28,36 @@ const LogConsole: React.FC<LogConsoleProps> = ({ logs, onClear, onSave }) => {
   }, [logs]);
 
   return (
-    <div className={`glass ${styles.container}`}>
+    <section className={`glass ${styles.container}`} aria-labelledby="logs-title">
       <div className={styles.header}>
-        <h2 className={styles.title}>Operaciones</h2>
+        <h2 id="logs-title" className={styles.title}>{t('logs.title')}</h2>
         <div className={styles.actions}>
-          <button onClick={onSave} className={styles.saveBtn}>F1 GUARDAR</button>
-          <button onClick={onClear} className={styles.clearBtn}>F2 LIMPIAR</button>
+          <button onClick={onSave} className={styles.actionBtn}>
+            <span className={styles.key}>F1</span> {t('logs.save').split(' ')[1]}
+          </button>
+          <button onClick={onClear} className={styles.actionBtn}>
+            <span className={styles.key}>F2</span> {t('logs.clear').split(' ')[1]}
+          </button>
         </div>
       </div>
-
-      <div className={styles.logArea} ref={scrollRef}>
+      
+      <div className={styles.console} role="log" aria-live="polite" ref={scrollRef}>
         {logs.length === 0 ? (
-          <div className={styles.empty}>Esperando tareas...</div>
+          <div className={styles.empty}>{t('logs.waiting')}</div>
         ) : (
           logs.map((log) => (
-            <div key={log.id} className={`${styles.logLine} ${styles[log.type]}`}>
-              <span className={styles.time}>
-                {log.timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' })}
+            <div key={log.id} className={`${styles.entry} ${styles[log.type]}`}>
+              <span className={styles.timestamp}>
+                [{log.timestamp.toLocaleTimeString()}]
               </span>
-              <span className={styles.status}>[{log.type.toUpperCase()}]</span>
-              <span className={styles.message}>
-                {log.fileName && <strong className={styles.file}>{log.fileName}:</strong>} {log.message}
-              </span>
+              <span className={styles.type}>[{log.type.toUpperCase()}]</span>
+              {log.fileName && <span className={styles.fileName}>{log.fileName}: </span>}
+              <span className={styles.message}>{log.message}</span>
             </div>
           ))
         )}
       </div>
-    </div>
+    </section>
   );
 };
 

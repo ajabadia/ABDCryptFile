@@ -1,5 +1,19 @@
 import type { Metadata } from 'next';
+import { Space_Mono, Roboto_Mono } from 'next/font/google';
+import { LanguageProvider } from '@/lib/context/LanguageContext';
 import './globals.css';
+
+const spaceMono = Space_Mono({
+  subsets: ['latin'],
+  weight: ['400', '700'],
+  variable: '--font-space-mono',
+});
+
+const robotoMono = Roboto_Mono({
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '700'],
+  variable: '--font-roboto-mono',
+});
 
 export const metadata: Metadata = {
   title: 'ABDFN Encryptor - Secure Portable Utility',
@@ -13,12 +27,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="es">
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Roboto+Mono:wght@300;400;500;700&display=swap" rel="stylesheet" />
-      </head>
-      <body>{children}</body>
+      <body className={`${spaceMono.variable} ${robotoMono.variable}`}>
+        <LanguageProvider initialLang="es">
+          {children}
+        </LanguageProvider>
+      </body>
     </html>
   );
 }

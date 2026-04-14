@@ -67,8 +67,8 @@ const FileProcessor: React.FC<FileProcessorProps> = ({
         onDrop={handleDrop}
       >
         <div className={styles.dropZoneContent}>
-          <FolderIcon size={48} className={styles.icon} />
-          <p>Arrastra archivos aquí o haz clic para seleccionar</p>
+          <FolderIcon size={48} className={styles.icon} aria-hidden="true" />
+          <p>{t('processor.dropzone')}</p>
         </div>
         <input 
           type="file" 
@@ -80,29 +80,34 @@ const FileProcessor: React.FC<FileProcessorProps> = ({
 
       <div className={styles.listHeader}>
         <div className={styles.listStats}>
-          {files.length} archivos seleccionados
+          {files.length} {t('processor.selected')}
         </div>
         <div className={styles.listActions}>
-          <button onClick={() => sortFiles(true)} title="Ordenar A-Z">
-            <ArrowUpIcon size={16} />
+          <button onClick={() => sortFiles(true)} title={t('processor.sort_az')} aria-label={t('processor.sort_az')}>
+            <ArrowUpIcon size={16} aria-hidden="true" />
           </button>
-          <button onClick={() => sortFiles(false)} title="Ordenar Z-A">
-            <ArrowDownIcon size={16} />
+          <button onClick={() => sortFiles(false)} title={t('processor.sort_za')} aria-label={t('processor.sort_za')}>
+            <ArrowDownIcon size={16} aria-hidden="true" />
           </button>
-          <button onClick={clearFiles} className={styles.dangerText}>Limpiar lista</button>
+          <button onClick={clearFiles} className={styles.dangerText}>{t('processor.clear_list')}</button>
         </div>
       </div>
 
-      <div className={styles.fileList}>
+      <div className={styles.fileList} role="list">
         {files.length === 0 ? (
-          <div className={styles.emptyList}>La lista está vacía</div>
+          <div className={styles.emptyList}>{t('processor.empty')}</div>
         ) : (
           files.map(({ file, id }) => (
-            <div key={id} className={styles.fileItem}>
+            <div key={id} className={styles.fileItem} role="listitem">
               <span className={styles.fileName}>{file.name}</span>
               <span className={styles.fileSize}>{(file.size / 1024).toFixed(1)} KB</span>
-              <button onClick={() => removeFile(id)} className={styles.removeBtn}>
-                <CloseIcon size={16} />
+              <button 
+                onClick={() => removeFile(id)} 
+                className={styles.removeBtn}
+                title={t('processor.remove')}
+                aria-label={`${t('processor.remove')} ${file.name}`}
+              >
+                <CloseIcon size={16} aria-hidden="true" />
               </button>
             </div>
           ))
@@ -118,7 +123,7 @@ const FileProcessor: React.FC<FileProcessorProps> = ({
             if (clearOnFinish) setFiles([]);
           }}
         >
-          {isProcessing ? 'Procesando...' : 'Encriptar Todo'}
+          {isProcessing ? t('processor.processing') : t('processor.encrypt_all')}
         </button>
         <button 
           className={`${styles.btn} ${styles.btnDecrypt}`}
@@ -128,7 +133,7 @@ const FileProcessor: React.FC<FileProcessorProps> = ({
             if (clearOnFinish) setFiles([]);
           }}
         >
-          {isProcessing ? 'Procesando...' : 'Desencriptar Todo'}
+          {isProcessing ? t('processor.processing') : t('processor.decrypt_all')}
         </button>
       </div>
     </div>

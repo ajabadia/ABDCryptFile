@@ -84,7 +84,7 @@ export default function Home() {
       }
     }
 
-    addLog('info', `Resumen final: ✅ ${successCount} éxitos, ❌ ${errorCount} errores, ⏭️ ${skipCount} omitidos.`);
+    addLog('info', t('logs.summary', { s: successCount, e: errorCount, k: skipCount }));
     setIsProcessing(false);
   };
 
@@ -103,17 +103,20 @@ export default function Home() {
   }, [logs]);
 
   return (
-    <main className={styles.main}>
+    <main className={styles.main} role="main">
       <header className={styles.header}>
         <div className={styles.headerMain}>
           <div className={styles.logo}>
-            <ShieldIcon size={48} className={styles.logoIcon} />
+            <ShieldIcon size={48} className={styles.logoIcon} aria-hidden="true" />
             <div className={styles.logoText}>
-              <h1>ABDFN Encryptor</h1>
-              <span>Secure File Utility v2.0 (Web)</span>
+              <h1>{t('ui.title')}</h1>
+              <span>{t('ui.subtitle')}</span>
             </div>
           </div>
-          <ThemeSwitcher />
+          <div className={styles.headerControls}>
+            <LanguageSwitcher />
+            <ThemeSwitcher />
+          </div>
         </div>
       </header>
 
