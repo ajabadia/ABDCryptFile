@@ -6,7 +6,11 @@ Accede a la aplicación en vivo: [**https://abd-crypt-file.vercel.app/**](https:
 
 ABDFN Encryptor es una herramienta de encriptación de archivos masiva, diseñada para ser **100% privada** y ejecutarse íntegramente en el navegador. Inspirada en la estética minimalista de los terminales de 1980 (C64 / Apple II), esta utilidad garantiza que tus archivos nunca abandonen tu equipo.
 
-![Retro UI Dark](https://via.placeholder.com/800x450/352879/6c5eb5?text=ABDFN+Encryptor+C64+Mode)
+### 🎨 Temas Retro en Acción
+
+| Modo C64 (Oscuro) | Modo 1984 PC (Claro) |
+| :---: | :---: |
+| ![Dark Mode](public/screenshots/dark_mode.png) | ![Light Mode](public/screenshots/light_mode.png) |
 
 ## 🚀 Características Principales
 
