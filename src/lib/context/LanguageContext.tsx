@@ -11,8 +11,13 @@ interface LanguageContextType {
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
-export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [language, setLanguage] = useState<Language>('es');
+interface LanguageProviderProps {
+  children: React.ReactNode;
+  initialLang?: Language;
+}
+
+export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children, initialLang = 'es' }) => {
+  const [language, setLanguage] = useState<Language>(initialLang);
 
   // Load from localStorage on mount
   useEffect(() => {
