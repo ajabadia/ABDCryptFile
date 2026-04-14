@@ -39,7 +39,7 @@ export class CryptoService {
     return crypto.subtle.deriveKey(
       {
         name: 'PBKDF2',
-        salt: salt,
+        salt: salt as any, // Cast to any to avoid TypeScript type mismatch with SharedArrayBuffer on Vercel
         iterations: ITERATIONS,
         hash: 'SHA-256'
       },
